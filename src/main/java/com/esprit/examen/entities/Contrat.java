@@ -1,5 +1,14 @@
 package com.esprit.examen.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public enum Contrat {
-CDI,CIVP,EXPERT,FREELANCE
+    @JsonProperty("CDI")
+    CDI,
+    @JsonProperty("CIVP")
+    CIVP,
+    @JsonProperty("EXPERT")
+    EXPERT,
+    @JsonProperty("FREELANCE")
+    FREELANCE
 }
