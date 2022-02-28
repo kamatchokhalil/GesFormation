@@ -9,6 +9,8 @@ public interface IFormateurService {
 
 	Long modifierFormateur(Formateur formateur);
 
+	Formateur getFormateurByID( long id);
+
 	void supprimerFormateur(Long formateurId);
 	
 	//Long nombreFormateursImpliquesDansUnCours(TypeCours typeCours);

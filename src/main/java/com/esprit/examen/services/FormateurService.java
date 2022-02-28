@@ -27,6 +27,11 @@ public class FormateurService implements IFormateurService{
 	}
 
 	@Override
+	public Formateur getFormateurByID(long id) {
+		return formateurRepository.findById(id).get();
+	}
+
+	@Override
 	public void supprimerFormateur(Long formateurId) {
 		formateurRepository.deleteById(formateurId);
 		

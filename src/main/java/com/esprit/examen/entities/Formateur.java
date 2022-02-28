@@ -21,8 +21,9 @@ public class Formateur implements Serializable{
 	@Size(min=5, message="Name should have atleast 5 characters")
 	private String nom;
 	private String prenom;
-	@Enumerated(EnumType.STRING)
-	private Poste poste;
+	//@Enumerated(EnumType.STRING)
+	//private Poste poste;
+	private String poste;
 	//@Enumerated(EnumType.STRING)
 
 	private String contrat;
@@ -52,10 +53,18 @@ public class Formateur implements Serializable{
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public Poste getPoste() {
+/*	public Poste getPoste() {
 		return poste;
 	}
 	public void setPoste(Poste poste) {
+		this.poste = poste;
+	}*/
+
+	public String getPoste() {
+		return poste;
+	}
+
+	public void setPoste(String poste) {
 		this.poste = poste;
 	}
 
@@ -108,7 +117,7 @@ public class Formateur implements Serializable{
 				+ contrat + ", email=" + email + ", password=" + password + ", sessions=" + sessions + "]";
 	}
 	
-	public Formateur(Long id, String nom, String prenom, Poste poste, String contrat, String email, String password) {
+	public Formateur(Long id, String nom, String prenom, String poste, String contrat, String email, String password, Boolean admin) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -117,6 +126,7 @@ public class Formateur implements Serializable{
 		this.contrat = contrat;
 		this.email = email;
 		this.password = password;
+		this.admin = admin;
 	}
 	public Formateur() {
 		super();
