@@ -10,14 +10,18 @@ import com.esprit.examen.entities.Cours;
 import com.esprit.examen.entities.Session;
 import com.esprit.examen.repositories.CoursRepository;
 import com.esprit.examen.repositories.SessionRepository;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 @Service
 public class CoursService implements ICoursService {
 
+	private static final Logger l = LogManager.getLogger(CoursService.class);
+	
 	@Autowired
 	CoursRepository coursRepository;
 	@Override
 	public Long addCours(Cours cours) {
+		l.info("In ajouterCours() : ");
 		coursRepository.save(cours);
 		return cours.getId();
 	}
@@ -30,8 +34,16 @@ public class CoursService implements ICoursService {
 
 	@Override
 	public void supprimerCours(Long coursId) {
+		try {
+			l.info("In supprimerCours() : ");
+			l.debug("Je vais lancer la suppression.");
 		coursRepository.deleteById(coursId);
-		
+		l.debug("Je viens de lancer la suppression");
+		l.debug("Je viens de finir la suppression.");
+
+		l.info("Out supprimerCours() without errors.");
+		}
+		catch (Exception e) { l.error("Erreur dans supprimerCours() : " + e); }
 	}
 
 	@Override
