@@ -3,16 +3,11 @@ package com.esprit.examen.entities;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
+@Table
 public class Formateur implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -21,10 +16,7 @@ public class Formateur implements Serializable{
 	@Size(min=5, message="Name should have atleast 5 characters")
 	private String nom;
 	private String prenom;
-	//@Enumerated(EnumType.STRING)
-	//private Poste poste;
 	private String poste;
-	//@Enumerated(EnumType.STRING)
 
 	private String contrat;
 	private String email;
@@ -53,12 +45,6 @@ public class Formateur implements Serializable{
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-/*	public Poste getPoste() {
-		return poste;
-	}
-	public void setPoste(Poste poste) {
-		this.poste = poste;
-	}*/
 
 	public String getPoste() {
 		return poste;
@@ -76,14 +62,6 @@ public class Formateur implements Serializable{
 		this.contrat = contrat;
 	}
 
-	/**	public Contrat getContrat() {
-		return contrat;
-	}
-	public void setContrat(Contrat contrat) {
-		this.contrat = contrat;
-	}*/
-	
-	
 	public String getEmail() {
 		return email;
 	}

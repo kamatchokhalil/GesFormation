@@ -13,6 +13,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+
+import javax.transaction.Transactional;
 // les deux importation pour la méthode get au niveau de perform
 
 
@@ -24,6 +26,7 @@ class FormateurRestControllerTest extends GesFApplicationTests{
     private WebApplicationContext webApplicationContext;
     @Autowired
     IFormateurService formateurService;
+
     private MockMvc mockMvc;
 
     private static final Logger logger = LogManager.getLogger(LoggingAspect.class);
@@ -61,7 +64,33 @@ class FormateurRestControllerTest extends GesFApplicationTests{
 
 
     @Test
+    @Transactional
     void testModifierFormateur() {
+        Formateur formateur = new Formateur(null,"Oueslati","Ahmed khalil","INGÉNIEUR","FREELANCE","ahmed@gmail.com","pass123",true);
+        formateurService.addFormateur(formateur);
+        Long id = formateur.getId();
+        Assert.assertNotNull(id);
+        System.out.println("id => "+ id);
+        Formateur savedFormateur = formateurService.getFormateurByID(id);
+        System.out.println(" get added fid => "+ id);
+        savedFormateur.setId(id);
+        savedFormateur.setNom("test");
+        savedFormateur.setPrenom("test");
+        formateurService.modifierFormateur(savedFormateur);
+        System.out.println("updated => ");
+        Formateur updatedForm = formateurService.getFormateurByID(id);
+
+        try {
+            Assert.assertEquals("test", updatedForm.getNom());
+            Assert.assertEquals("test", updatedForm.getPrenom());
+
+        }finally {
+            System.out.println("Delete last insert .....");
+            formateurService.supprimerFormateur(id);
+        }
+
+
+
     }
 
     @Test

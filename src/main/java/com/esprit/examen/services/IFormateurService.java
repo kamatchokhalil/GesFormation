@@ -7,7 +7,7 @@ import com.esprit.examen.entities.TypeCours;
 public interface IFormateurService {
 	Long addFormateur(Formateur formateur);
 
-	Long modifierFormateur(Formateur formateur);
+	void modifierFormateur(Formateur formateur);
 
 	Formateur getFormateurByID( long id);
 
