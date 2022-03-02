@@ -3,26 +3,22 @@ package com.esprit.examen.entities;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
+@Table
 public class Formateur implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Size(min=5, message="Name should have atleast 5 characters")
 	private String nom;
 	private String prenom;
-	@Enumerated(EnumType.STRING)
-	private Poste poste;
-	@Enumerated(EnumType.STRING)
-	private Contrat contrat;
+	private String poste;
+
+	private String contrat;
 	private String email;
 	private String password;
 	private Boolean admin;
@@ -49,20 +45,23 @@ public class Formateur implements Serializable{
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public Poste getPoste() {
+
+	public String getPoste() {
 		return poste;
 	}
-	public void setPoste(Poste poste) {
+
+	public void setPoste(String poste) {
 		this.poste = poste;
 	}
-	public Contrat getContrat() {
+
+	public String getContrat() {
 		return contrat;
 	}
-	public void setContrat(Contrat contrat) {
+
+	public void setContrat(String contrat) {
 		this.contrat = contrat;
 	}
-	
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -96,7 +95,7 @@ public class Formateur implements Serializable{
 				+ contrat + ", email=" + email + ", password=" + password + ", sessions=" + sessions + "]";
 	}
 	
-	public Formateur(Long id, String nom, String prenom, Poste poste, Contrat contrat, String email, String password) {
+	public Formateur(Long id, String nom, String prenom, String poste, String contrat, String email, String password, Boolean admin) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -105,6 +104,7 @@ public class Formateur implements Serializable{
 		this.contrat = contrat;
 		this.email = email;
 		this.password = password;
+		this.admin = admin;
 	}
 	public Formateur() {
 		super();
