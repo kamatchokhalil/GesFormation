@@ -18,8 +18,8 @@ public class Cours implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String description;
-	@Enumerated(EnumType.STRING)
-	private TypeCours typeCours;
+	// @Enumerated(EnumType.STRING)
+	private String typeCours;
 	private String intitule;
 	@ManyToMany(mappedBy="cours")
 	private Set<Session> sessions;
@@ -35,10 +35,10 @@ public class Cours implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public TypeCours getTypeCours() {
+	public String getTypeCours() {
 		return typeCours;
 	}
-	public void setTypeCours(TypeCours typeCours) {
+	public void setTypeCours(String typeCours) {
 		this.typeCours = typeCours;
 	}
 	public String getIntitule() {
@@ -60,7 +60,7 @@ public class Cours implements Serializable {
 		return "Cours [id=" + id + ", description=" + description + ", typeCours=" + typeCours + ", intitule="
 				+ intitule + "]";
 	}
-	public Cours(Long id, String description, TypeCours typeCours, String intitule) {
+	public Cours(Long id, String description, String typeCours, String intitule) {
 		super();
 		this.id = id;
 		this.description = description;

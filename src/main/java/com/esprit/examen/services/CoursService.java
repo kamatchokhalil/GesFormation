@@ -43,13 +43,15 @@ public class CoursService implements ICoursService {
 
 		l.info("Out supprimerCours() without errors.");
 		}
-		catch (Exception e) { l.error("Erreur dans supprimerCours() : " + e); }
+		catch (Exception e) { 
+			l.error("Erreur dans supprimerCours() : " + e);
+			}
 	}
 
 	@Override
 	public List<Cours> getCours() {
 		
-		List<Cours> cours =   coursRepository.findAll();
+		List<Cours> cours = coursRepository.findAll();
 		return cours;
 	}
 	
@@ -59,5 +61,12 @@ public class CoursService implements ICoursService {
 		/*todo*/
         
 	}
+
+	@Override
+	public Cours getCoursByID(Long id) {
+		return coursRepository.findById(id).get();
+	}
+
+
 
 }
