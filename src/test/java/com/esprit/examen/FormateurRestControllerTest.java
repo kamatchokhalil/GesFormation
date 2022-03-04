@@ -48,7 +48,7 @@ class FormateurRestControllerTest extends GesFApplicationTests{
 
         Formateur savedFormateur = formateurService.getFormateurByID(id);
         try {
-            Assert.assertEquals("Barkallah", savedFormateur.getNom());
+            Assert.assertEquals("Oueslati", savedFormateur.getNom());
             Assert.assertEquals("Ahmed khalil", savedFormateur.getPrenom());
             Assert.assertEquals("INGÉNIEUR", savedFormateur.getPoste());
             Assert.assertEquals("FREELANCE", savedFormateur.getContrat());
