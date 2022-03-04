@@ -15,7 +15,7 @@
 	<description>springBootProject</description>
 	<properties>
 		<java.version>1.8</java.version>
-		<sonar.host.url>http://localhost:9000/</sonar.host.url>
+
 	</properties>
 
 	<distributionManagement>
@@ -65,11 +65,9 @@
 			<version>1.18.20</version>
 			<scope>provided</scope>
 		</dependency>
-		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-		
 			<scope>test</scope>
 		</dependency>
 
@@ -96,6 +94,19 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>-->
 
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>verify</phase>
+						<goals>
+							<goal>sonar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 
 			<plugin>
 				<groupId>org.jacoco</groupId>
@@ -118,5 +129,30 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>sonar</id>
+			<properties>
+				<sonar.host.url>http://localhost:9000/</sonar.host.url>
+				<sonar.login>admin</sonar.login>
+				<sonar.password>esprit</sonar.password>
+				<sonar.projectKey>GesF</sonar.projectKey>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+					</plugin>
+					<plugin>
+						<groupId>org.sonarsource.scanner.maven</groupId>
+						<artifactId>sonar-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 
 </project>
