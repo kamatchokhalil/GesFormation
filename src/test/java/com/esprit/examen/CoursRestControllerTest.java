@@ -1,4 +1,4 @@
-package com.esprit.examen.controllers;
+package com.esprit.examen;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.esprit.examen.entities.Cours;
 import com.esprit.examen.services.ICoursService;
 
-class CoursRestControllerTest {
+class CoursRestControllerTest extends GesFApplicationTests {
 
 	@Autowired
 	ICoursService coursServices;
