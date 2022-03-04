@@ -35,25 +35,6 @@ class CoursRestControllerTest extends GesFApplicationTests {
 	        coursServices.supprimerCours(id);
 	    }
 	}
-
-	@Test
-	void testModifierCours() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSupprimerCours() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testListeCours() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testAffecterFormateurASession() {
-		fail("Not yet implemented");
-	}
+	
 
 }
