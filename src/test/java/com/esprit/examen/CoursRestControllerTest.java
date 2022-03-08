@@ -38,11 +38,6 @@ class CoursRestControllerTest extends GesFApplicationTests{
 	}
 
 	@Test
-	void testModifierCours() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	void testSupprimerCours() {
 		Cours cours = new Cours(null, "description", "INFORMATIQUE", "intitle"); 
 		System.out.print(cours);
@@ -64,14 +59,5 @@ class CoursRestControllerTest extends GesFApplicationTests{
 	    }
 	}
 
-	@Test
-	void testListeCours() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testAffecterFormateurASession() {
-		fail("Not yet implemented");
-	}
 
 }
