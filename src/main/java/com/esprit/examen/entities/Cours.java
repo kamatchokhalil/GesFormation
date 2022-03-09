@@ -67,10 +67,6 @@ public class Cours implements Serializable {
 		this.intitule = intitule;
 	}
 	
-	public Cours () {
-		super();
-	}
-	
 	
 	
 }
