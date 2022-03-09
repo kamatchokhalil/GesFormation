@@ -36,5 +36,29 @@ class CoursRestControllerTest extends GesFApplicationTests {
 	    }
 	}
 	
+	@Test
+	void testSupprimerCours() {
+		Cours cours = new Cours(null, "description", "INFORMATIQUE", "intitle"); 
+		System.out.print(cours);
+		coursServices.addCours(cours);
+		Long id = cours.getId();
+		System.out.print(id);
+		Assert.assertNotNull(id);
+		System.out.println("id : "+ id);
+		Cours savedCours = coursServices.getCoursByID(id);
+		try {
+	        Assert.assertEquals("description", savedCours.getDescription());
+	        Assert.assertEquals("INFORMATIQUE", savedCours.getTypeCours());
+	        Assert.assertEquals("intitle", savedCours.getIntitule());
+
+		}
+		finally {
+	        System.out.println("Delete last insert .....");
+	        coursServices.supprimerCours(id);
+	    }
+	}
+
+
+	
 
 }
