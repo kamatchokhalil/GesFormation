@@ -6,11 +6,10 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.esprit.examen.GesFApplication;
 import com.esprit.examen.entities.Cours;
 import com.esprit.examen.services.ICoursService;
 
-class CoursRestControllerTest extends GesFApplicationTests{
+class CoursRestControllerTest extends GesFApplicationTests {
 
 	@Autowired
 	ICoursService coursServices;
@@ -36,6 +35,7 @@ class CoursRestControllerTest extends GesFApplicationTests{
 	        coursServices.supprimerCours(id);
 	    }
 	}
+
 
 	@Test
 	void testSupprimerCours() {
