@@ -18,6 +18,12 @@ public class FormateurRestController {
     @Autowired
     IFormateurService formateurService;
 
+    @RequestMapping("/index")
+    @ResponseBody
+    public String accueilFormateur(@PathVariable("formateurId") Long formateurId) {
+       return "Bienvenu";
+    }
+
     @RequestMapping(value = "/ajouterFormateur")
     @ResponseBody
     public ResponseEntity ajouterFormateur(@Valid @RequestBody Formateur formateur) throws Exception{
