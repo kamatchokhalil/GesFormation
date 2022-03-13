@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.esprit.examen</groupId>
 	<artifactId>GesF</artifactId>
-	<version>1.0</version>
+	<version>1.2</version>
 	<name>GesF</name>
 	<description>springBootProject</description>
 	<properties>
@@ -31,12 +31,16 @@
 	</properties>
 
 	<distributionManagement>
-		<snapshotRepository>
-			<id>gestion</id>
+		<repository>
+			<id>deploymentRepo</id>
 			<name>first</name>
 			<url>http://localhost:8081/repository/maven-releases/</url>
-		</snapshotRepository>
+		</repository>
 	</distributionManagement>
+	<scm>
+		<connection>scm:git:git@github.com:kamatchokhalil/GesFormation.git</connection>
+	</scm>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -136,7 +140,24 @@
 
 			</plugin>
 
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>1.2.5.RELEASE</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+			</plugin>
 
 		</plugins>
 	</build>
@@ -166,5 +187,6 @@
 			</properties>
 		</profile>
 	</profiles>
+
 
 </project>
