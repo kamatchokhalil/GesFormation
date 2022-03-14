@@ -37,10 +37,10 @@
 			<url>http://localhost:8081/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
-	<scm>
+<!--	<scm>
 		<connection>scm:git:git@github.com:kamatchokhalil/GesFormation.git</connection>
 	  <tag>GesF-0.0.1</tag>
-  </scm>
+  </scm>-->
 
 	<dependencies>
 		<dependency>
@@ -111,7 +111,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>${project.artifactId}.${project.version}</finalName>
+		<!--<finalName>${project.artifactId}.${project.version}</finalName>-->
 		<plugins>
 
 			<plugin>
