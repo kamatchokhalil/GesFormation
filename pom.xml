@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.esprit.examen</groupId>
 	<artifactId>GesF</artifactId>
-	<version>${revision}</version>
+	<version>0.0.1</version>
 	<name>GesF</name>
 	<description>springBootProject</description>
 	<properties>
