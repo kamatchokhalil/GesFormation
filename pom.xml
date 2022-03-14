@@ -112,7 +112,7 @@
 
 	<build>
 		<!--<finalName>${project.artifactId}.${project.version}</finalName>-->
-		<finalName>${artifactId}-${version}${build.number}</finalName>
+		<finalName>0.0.${build.number}</finalName>
 		<plugins>
 
 			<plugin>
