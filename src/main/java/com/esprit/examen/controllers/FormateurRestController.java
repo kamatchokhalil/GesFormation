@@ -21,7 +21,7 @@ public class FormateurRestController {
     @RequestMapping(value = "/docker")
     @ResponseBody
     public String accueilFormateur() {
-        //ceci est un test for test
+        //ceci est un test for testaaaaa
        return "Welcome docker from formateur";
     }
 
