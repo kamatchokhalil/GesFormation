@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-alpine
 EXPOSE 8083
-ADD target/GesF-1.0.jar GesF-1.0.jar
+ADD target/${project.artifactId}.${project.version} ${project.artifactId}.${project.version}
 COPY . .
-ENTRYPOINT ["java","-jar","/GesF-1.0.jar"]
+ENTRYPOINT ["java","-jar","/${project.artifactId}.${project.version}.jar"]
 
