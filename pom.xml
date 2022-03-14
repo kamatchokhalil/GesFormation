@@ -32,8 +32,6 @@
 	<distributionManagement>
 		<repository>
 			<id>deploymentRepo</id>
-			<name>first</name>
-			<uniqueVersion>false</uniqueVersion>
 			<url>http://localhost:8081/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
