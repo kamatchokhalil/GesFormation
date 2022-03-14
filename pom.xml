@@ -9,12 +9,10 @@
 	</parent>
 	<groupId>com.esprit.examen</groupId>
 	<artifactId>GesF</artifactId>
-	<version>0.1</version>
+	<version>${revision}</version>
 	<name>GesF</name>
 	<description>springBootProject</description>
 	<properties>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
 <!--		<java.version>1.8</java.version>
 		<sonar.host.url>http://localhost:9000</sonar.host.url>
 		<sonar.sources>src/main</sonar.sources>
@@ -113,6 +111,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}.${project.version}</finalName>
 		<plugins>
 
 			<plugin>
@@ -156,14 +155,14 @@
 				</executions>
 			</plugin>
 
-			<plugin>
+<!--			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.5.3</version>
 				<configuration>
 					<tagNameFormat>@{project.version}</tagNameFormat>
 				</configuration>
-			</plugin>
+			</plugin>-->
 
 		</plugins>
 	</build>
