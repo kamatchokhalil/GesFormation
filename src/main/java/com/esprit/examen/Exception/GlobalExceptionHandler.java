@@ -52,7 +52,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             errors.put(fieldName, errorMessage);
         });
 
-        l.warn("check your data please ....");
+        l.warn("check your data please .....");
 
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
