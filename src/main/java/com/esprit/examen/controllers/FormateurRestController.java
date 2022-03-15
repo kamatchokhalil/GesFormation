@@ -11,6 +11,7 @@ import com.esprit.examen.services.IFormateurService;
 import org.springframework.web.client.HttpClientErrorException;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 public class FormateurRestController {
@@ -77,11 +78,18 @@ public class FormateurRestController {
 
     }
 
-    @PutMapping("/modifierFormateur")
+    @GetMapping("/modifierFormateur")
     @ResponseBody
     public Formateur modifierFormateur(@RequestBody Formateur formateur) {
         formateurService.addFormateur(formateur);
         return formateur;
+    }
+
+    @PutMapping("/getAll")
+    @ResponseBody
+    public List<Formateur> getAllFormateur() {
+        formateurService.listFormateurs();
+        return  formateurService.listFormateurs();
     }
 
     @DeleteMapping("/supprimerFormateur/{formateurId}")

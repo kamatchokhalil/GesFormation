@@ -2,6 +2,8 @@ package com.esprit.examen.services;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
@@ -17,15 +19,25 @@ public class FormateurService implements IFormateurService{
 
 	@Autowired
 	FormateurRepository formateurRepository;
+	private static final Logger l = LogManager.getLogger(FormateurService.class);
 	@Override
 	public Long addFormateur(Formateur formateur) {
-		formateurRepository.save(formateur);
-		return formateur.getId();
+
+			l.info("invok add formateur method ");
+			formateurRepository.save(formateur);
+			return formateur.getId();
+
 	}
 
 	@Override
 	public void modifierFormateur(Formateur formateur) {
-		formateurRepository.save(formateur);
+		try{
+			l.info("invok delete ");
+			formateurRepository.save(formateur);
+		}catch (Exception e){
+			l.error("check this : " + e.getMessage());
+		}
+
 		//return formateur.getId();
 	}
 

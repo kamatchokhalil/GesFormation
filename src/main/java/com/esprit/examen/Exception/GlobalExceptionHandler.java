@@ -1,6 +1,9 @@
 package com.esprit.examen.Exception;
 
 
+import com.esprit.examen.services.FormateurService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +22,7 @@ import java.util.*;
 
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+    private static final Logger l = LogManager.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(RessourceDuplicated.class)
     public ResponseEntity<?> ressourceDuplicated(RessourceDuplicated ressourceDuplicated, WebRequest webRequest){
@@ -47,6 +51,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             String errorMessage = error.getDefaultMessage();
             errors.put(fieldName, errorMessage);
         });
+
+        l.warn("check your data please ....");
+
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 
