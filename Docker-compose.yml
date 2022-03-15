@@ -5,27 +5,28 @@ services:
    restart: unless-stopped
  
    environment: 
-    - MYSQL_ROOT_PASSWORD=
     - MYSQL_USER=root
+    - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     - MYSQL_DATABASE=testF
    ports:
-    - 3306:3307
+    - 3307:3306
    volumes:
     - db:/var/lib/mysql
   app:
     depends_on:
      - mysqldb
-    build: /
+    image: gestfcompose:latest
+    build: ./
     restart: on-failure
    
     ports:
-     - 8082:8080
+     - 8083:8082
     environment: 
      SPRING_APPLICATION_JSON: '{
-      "spring.datasource.url" : "jdbc:mysql://mysqldb:3307/testF?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+      "spring.datasource.url" : "jdbc:mysql://mysqldb:3306/testF?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
       "spring.datasource.username":"root",
       "spring.datasource.password":"", 
-      "spring.jpa.properties.hibernate.dialect": "org.hibernate.dialect.MySQL57InnoDBDialect",
+      "spring.jpa.properties.hibernate.dialect": "org.hibernate.dialect.MySQL5InnoDBDialect",
       "spring.jpa.hibernate.ddl-auto": "update"
        }'
     volumes:
