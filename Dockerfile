@@ -1,6 +1,5 @@
-FROM openjdk:8-jdk-alpine
-EXPOSE 8083
-ADD target/${project.artifactId}.${project.version} ${project.artifactId}.${project.version}
+FROM maven:3.8.2-jdk-8
+WORKDIR /GestFormation
 COPY . .
-ENTRYPOINT ["java","-jar","/${project.artifactId}.${project.version}.jar"]
-
+RUN mvn clean install
+CMD mvn spring-boot:run
