@@ -16,7 +16,9 @@ services:
     depends_on:
      - mysqldb
     image: gestfcompose:latest
-    build: ./
+    build:
+     context: ./
+     dockerfile: Dockerfile
     restart: on-failure
    
     ports:
