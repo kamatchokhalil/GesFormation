@@ -35,10 +35,7 @@
 			<url>http://localhost:8081/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
-<!--	<scm>
-		<connection>scm:git:git@github.com:kamatchokhalil/GesFormation.git</connection>
-	  <tag>GesF-0.0.1</tag>
-  </scm>-->
+
 
 	<dependencies>
 		<dependency>
