@@ -9,7 +9,7 @@ services:
     - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     - MYSQL_DATABASE=testF
    ports:
-    - 3307:3306
+    - 3306:3307
    volumes:
     - db:/var/lib/mysql
   app:
@@ -20,7 +20,7 @@ services:
     restart: on-failure
    
     ports:
-     - 8083:8082
+     - 8082:8083
     environment: 
      SPRING_APPLICATION_JSON: '{
       "spring.datasource.url" : "jdbc:mysql://mysqldb:3306/testF?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
